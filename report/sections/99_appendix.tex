@@ -15,8 +15,8 @@
 ラベル＆相互参照：
 
 \begin{lstlisting}[language=TeX]
-\section{同期方式}\label{sec:sync}
-... 詳細は \ref{sec:sync} 節を参照 ...
+\section{処理方式}\label{sec:method}
+... 詳細は \ref{sec:method} 節を参照 ...
 \end{lstlisting}
 
 \section{表の書き方}
@@ -31,8 +31,8 @@
     \toprule
     項目 & 数値 & 単位 \\
     \midrule
-    遅延 & 5   & ms \\
-    精度 & 99  & \% \\
+    項目A & 5   & ms \\
+    項目B & 99  & \% \\
     \bottomrule
   \end{tabular}
 \end{table}
@@ -55,18 +55,15 @@
 
 \verb|listings| パッケージを使う。日本語コメントを含む場合は \verb|plistings| を併用すること（本雛形では読み込み済み）。
 
-\begin{lstlisting}[language=C++,caption={3フェーズループ例},label={lst:3phase}]
+\begin{lstlisting}[language=C++,caption={コード掲載の例},label={lst:example}]
+#include <Arduino.h>
+
+void setup() {
+  Serial.begin(115200);
+}
+
 void loop() {
-  // 1. 入力フェーズ
-  for (int i = 0; i < INPUT_COUNT; i++) {
-    inputModules[i]->updateInput(data);
-  }
-  // 2. ロジックフェーズ
-  applyPattern(data);
-  // 3. 出力フェーズ
-  for (int i = 0; i < OUTPUT_COUNT; i++) {
-    outputModules[i]->updateOutput(data);
-  }
+  // 処理
 }
 \end{lstlisting}
 
@@ -75,10 +72,10 @@ void loop() {
 \verb|amsmath| を使う。インラインは \verb|$...$|，別行立ては \verb|\[...\]| または \verb|equation| 環境。
 
 \begin{lstlisting}[language=TeX]
-同期誤差の指標を式 \eqref{eq:jitter} に示す。
+標本標準偏差を式 \eqref{eq:stddev} に示す。
 \begin{equation}
-  \sigma_{\text{jitter}} = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(t_i - \bar{t})^2}
-  \label{eq:jitter}
+  \sigma = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \bar{x})^2}
+  \label{eq:stddev}
 \end{equation}
 \end{lstlisting}
 
@@ -91,7 +88,7 @@ void loop() {
 \end{itemize}
 
 % 参考文献 (refs.bib) から引用
-BLEの仕様\cite{ble_spec} に従い…
+標準仕様\cite{example_spec} に従い…
 \end{lstlisting}
 
 \section{よく使う記号・単位}
@@ -116,4 +113,8 @@ docker run --rm \
 \end{lstlisting}
 
 \subsection{GitHub Actions}
-\verb|report/**| 配下に変更のある PR / push で自動的に \verb|latexmk| が走り，生成された PDF が Artifact にアップロードされる。Actions タブから \verb|report-pdf| をダウンロードできる。
+\verb|report/**/*.tex|（および \verb|.bib|, \verb|.sty|, \verb|.cls|）に変更のある push で自動的に \verb|latexmk| が走る。
+\begin{itemize}
+  \item \textbf{push の場合}: 生成された \verb|report/main.pdf| が自動で同じブランチにコミットされる（コミッタは \verb|github-actions[bot]|）。push 直後に手元で \verb|git pull| を実行して反映を取り込むこと。
+  \item \textbf{Pull Request の場合}: PDF は Artifact にアップロードされる。Actions タブから \verb|report-pdf| としてダウンロード可能。
+\end{itemize}

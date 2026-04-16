@@ -1,15 +1,15 @@
 # node_05
 
-このノードの役割を担当者が記入する。
+このマイコン（5台目）の役割を担当者が記入する。
 
-## 役割（暫定）
+## 役割
 
-- 役割: 未定（例：指揮者 / 楽器1 など）
+- 役割: 未定
 - 担当者: 未定
 
 ## ハードウェア構成
 
-- ボード: 未定（暫定: Uno R4 WiFi）
+- ボード: 未定（暫定: Arduino Uno R4 WiFi）
 - 接続部品: 未定
 
 ## ピンアサイン
@@ -18,7 +18,9 @@
 |---|---|---|
 | - | - | - |
 
-## ビルド方法
+## ビルド・書き込み
+
+VSCode に PlatformIO 拡張を入れた状態で、このディレクトリを開くか、ターミナルで以下を実行する。
 
 ```bash
 cd firmware/node_05
@@ -27,6 +29,13 @@ pio run -t upload       # 書き込み
 pio device monitor      # シリアルモニタ
 ```
 
-## このノード固有モジュール
+## 共通ライブラリを使いたくなったら
 
-`lib/` 以下に配置する（現状は空）。共通モジュールは `firmware/common/lib/` にある。
+`firmware/common/lib/` にチーム共通のライブラリを置けるようになっている。
+使う場合は `platformio.ini` に次の1行を足す。
+
+```ini
+lib_extra_dirs = ../common/lib
+```
+
+詳しくは [`firmware/common/README.md`](../common/README.md) を参照。

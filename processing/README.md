@@ -1,20 +1,41 @@
-# processing — Processing スケッチ
+# processing — PC 側サブシステムの置き場（例）
 
-音源エンジンや可視化ツールなど，Processing で書くコードの置き場。
+このディレクトリは「**PC 側で動くサブシステムをリポジトリに同梱したいとき**」の例。
+サンプルとして [Processing](https://processing.org/) のスケッチを置いている。
+
+Processing 以外の言語で PC 側ツール（Python の可視化、Unity のビューア等）を
+作りたい場合は、ここを削除して自分たちの技術スタックに合うディレクトリ名に
+作り直してよい（例: `viewer/`, `desktop_app/`, `web/` など）。
+
+## こんなときに使う
+
+- マイコンから PC へシリアルでデータを送って可視化したい
+- PC 側で音・映像を生成したい
+- 操作用の GUI を作りたい
 
 ## 構成
 
 | ディレクトリ | 内容 |
 |---|---|
-| `sound_engine/` | 音源エンジン（シリアル入力 → 音声出力を想定） |
+| `example_sketch/` | 最小の Processing スケッチ（書き方のサンプル） |
 
-## 実行方法
+## 実行方法（Processing の場合）
 
-1. [Processing IDE](https://processing.org/download) をインストール
-2. `sound_engine/sound_engine.pde` を Processing で開く
-3. 「Run」で実行
+1. [Processing IDE](https://processing.org/download) をインストールする
+2. `example_sketch/example_sketch.pde` を Processing IDE で開く
+3. 「Run」ボタンを押す
 
-## 備考
+## スケッチを追加する
 
-- 追加のスケッチは `processing/<sketch_name>/<sketch_name>.pde` の形式で配置すること（Processing の要件）
-- ライブラリ依存がある場合は本 README に明記
+Processing のお約束として、スケッチのフォルダ名と `.pde` のファイル名は
+**同じ名前**にする必要がある。
+
+```
+processing/
+└── my_sketch/
+    └── my_sketch.pde   # フォルダと同じ名前
+```
+
+## 不要な班は
+
+`processing/` ディレクトリを丸ごと削除してよい。

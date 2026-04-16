@@ -47,8 +47,8 @@ build/
 *.glo
 *.gls
 *.ist
-# 生成 PDF は追跡しない（Actions Artifact / Release から取得）
-report/main.pdf
+# 生成 PDF は追跡する（GitHub Actions が自動コミットするため）
+# report/main.pdf
 
 # ===== Processing =====
 *.pde.bak
