@@ -34,7 +34,7 @@ PlatformIO は `lib_extra_dirs` で指定したディレクトリ配下のサブ
 
 | パス | 内容 |
 |---|---|
-| `lib/ExampleLibrary/` | 最小サンプル（`exampleAdd(a, b)` だけ）。書き方の雛形 |
+| `lib/ExampleLibrary/` | サンプルライブラリ。関数（`exampleAdd`, `exampleClamp`）と構造体（`ExamplePacket`）の書き方の雛形 |
 
 詳細は [lib/README.md](lib/README.md) を参照。
 

@@ -112,9 +112,6 @@ docker run --rm \
   latexmk main.tex
 \end{lstlisting}
 
-\subsection{GitHub Actions}
-\verb|report/**/*.tex|（および \verb|.bib|, \verb|.sty|, \verb|.cls|）に変更のある push で自動的に \verb|latexmk| が走る。
-\begin{itemize}
-  \item \textbf{push の場合}: 生成された \verb|report/main.pdf| が自動で同じブランチにコミットされる（コミッタは \verb|github-actions[bot]|）。push 直後に手元で \verb|git pull| を実行して反映を取り込むこと。
-  \item \textbf{Pull Request の場合}: PDF は Artifact にアップロードされる。Actions タブから \verb|report-pdf| としてダウンロード可能。
-\end{itemize}
+\subsection{Dev Container（推奨）}
+VSCode で本リポジトリを開き、\texttt{Reopen in Container} を選択すると、
+LaTeX Workshop が自動でビルドする。Docker を直接操作する必要がない。

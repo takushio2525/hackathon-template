@@ -2,8 +2,8 @@
 
 提出用の報告書を LaTeX で書くためのディレクトリ。
 
-**GitHub Actions により、`.tex` を push するだけで PDF が自動生成・コミットされる。**
-Docker を手元に入れなくても最新 PDF がリポジトリ上で確認できる。
+> **`docs/` との違い**: `docs/` は開発中にチーム内で共有する設計メモ（Markdown）。
+> `report/` は最終的に提出・印刷する報告書（LaTeX → PDF）。
 
 ## 構成
 
@@ -28,11 +28,10 @@ report/
 ## 書き方
 
 1. `sections/` の各 `.tex` ファイルにチームの内容を書く
-2. コミット → push
-3. **GitHub Actions が自動で PDF を生成・コミットする**
-4. `report/main.pdf` を GitHub 上で開いて確認
+2. 手元で PDF をコンパイルして確認（下記参照）
+3. コミット → push
 
-## 手元でコンパイルする場合
+## コンパイル方法
 
 ### Dev Container（推奨）
 
@@ -49,6 +48,5 @@ docker run --rm -v "$(pwd):/workspace" -w /workspace \
 
 ## 注意
 
-- push すると Actions が PDF を自動コミットするので、**push 後・次の作業前に必ず `git pull`**
 - 図は `fig/` ディレクトリに配置する（推奨形式: PDF / PNG）
 - LaTeX の基本記法は `99_appendix.tex`（付録）にチートシートとして載っている

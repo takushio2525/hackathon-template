@@ -8,6 +8,20 @@
 
 ---
 
+## 初めての人はここから
+
+Git や共同開発が初めてなら、以下の順番で読むとスムーズに始められる。
+
+| 順番 | 読むもの | 内容 |
+|:---:|---|---|
+| 1 | **この README** | テンプレートの全体像・クイックスタート |
+| 2 | [CONTRIBUTING.md](CONTRIBUTING.md) | Git の初期設定・ブランチの使い方・PR の出し方（**初心者向けに丁寧に書いてある**） |
+| 3 | 使うフォルダの `README.md` | 各フォルダの使い方（例: [`firmware/README.md`](firmware/README.md)、[`report/README.md`](report/README.md)） |
+
+> 慣れている人は「[ブランチ戦略](CONTRIBUTING.md#2-ブランチ戦略)」以降を斜め読みでOK。
+
+---
+
 ## 🚨 一番大事なこと
 
 > **コード編集を始める前に、必ず `git pull` でリポジトリを最新化してください。**
@@ -79,9 +93,9 @@ cd <新しいリポジトリ名>
 | [`hardware/`](hardware/) | 回路図・配線図・部品表 | ハードを使うときの資料一式の管理例 |
 | [`assets/`](assets/) | プロジェクト固有のデータ | マップ・シナリオ・設定ファイル・テストデータなどの置き場 |
 | [`tools/`](tools/) | 補助スクリプト | ベンチマーク・解析スクリプトの置き場 |
-| [`docs/`](docs/) | 設計ドキュメント・ADR | 設計判断を残すドキュメントの例 |
+| [`docs/`](docs/) | 設計ドキュメント・ADR | 開発中の設計判断を Markdown で残す（チーム内共有用） |
 | [`meetings/`](meetings/) | 議事録・WBS・ガント | 進捗管理ドキュメントのテンプレ |
-| [`report/`](report/) | LaTeX 報告書 | 提出用 PDF 報告書の雛形 |
+| [`report/`](report/) | LaTeX 報告書 | 提出用 PDF 報告書の雛形（`docs/` とは別物。提出・印刷用） |
 | `.devcontainer/` | LaTeX コンパイル環境 | VSCode の Dev Container 設定 |
 | `.github/` | PR / Issue テンプレ、GitHub Actions | 自動化の例 |
 | `.vscode/` | VSCode 推奨拡張・設定 | エディタ環境の共有 |
