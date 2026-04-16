@@ -35,14 +35,14 @@ jobs:
             -v "${{ github.workspace }}/report:/workspace" \
             -w /workspace \
             ghcr.io/paperist/texlive-ja:debian \
-            latexmk main.tex
+            latexmk -jobname=main_auto main.tex
 
       - name: Upload PDF artifact (PR)
         if: github.event_name == 'pull_request'
         uses: actions/upload-artifact@v4
         with:
           name: report-pdf
-          path: report/main.pdf
+          path: report/main_auto.pdf
           if-no-files-found: warn
 
       - name: Commit PDF to branch (push)
@@ -50,10 +50,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add report/main.pdf
+          git add report/main_auto.pdf
           if git diff --staged --quiet; then
             echo "PDF に変更なし。コミットをスキップします"
           else
-            git commit -m "[自動コンパイル] main.pdf を更新 [skip ci]"
+            git commit -m "[自動コンパイル] main_auto.pdf を更新 [skip ci]"
             git push origin HEAD:${{ github.ref_name }}
           fi
