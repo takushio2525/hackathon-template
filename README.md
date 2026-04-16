@@ -25,7 +25,7 @@
 
 - 各フォルダは「**こう分担すると開発がしやすい**」という**例**
 - 中身のコードは空 or 最小サンプル。**自分たちのプロジェクトに合わせて書き換える**
-- いらないフォルダは削除してよい（`firmware/`、`processing/`、`hardware/`、`scores/` など、テーマ次第で不要になる）
+- いらないフォルダは削除してよい（`firmware/`、`processing/`、`hardware/`、`assets/` など、テーマ次第で不要になる）
 - 各フォルダの `README.md` に「何のフォルダか・どう使うか・不要なら削除OK」が書いてあるので、迷ったらまずそれを読む
 
 ---
@@ -58,9 +58,9 @@ cd <新しいリポジトリ名>
 書いてあるので、チームで相談して決める。
 
 例：
-- Web アプリ中心 → `firmware/`, `hardware/`, `processing/`, `scores/` を削除
-- Arduino 中心 → `processing/` は残すかどうかチーム判断、`scores/` は削除
-- ゲーム中心 → `firmware/`, `hardware/` を削除、`scores/` は「マップ・シナリオ置き場」に流用
+- Web アプリ中心 → `firmware/`, `hardware/`, `processing/`, `assets/` を削除
+- Arduino 中心 → `processing/` は残すかどうかチーム判断、`assets/` は設定値置き場に流用
+- ゲーム中心 → `firmware/`, `hardware/` を削除、`assets/` は「マップ・シナリオ置き場」に流用
 
 ### Step 5. 自分たちのコードを書き始める
 
@@ -78,7 +78,7 @@ cd <新しいリポジトリ名>
 | [`firmware/`](firmware/) | マイコン用ファームウェア | **複数マイコンを分担開発**するときの構成（PlatformIO、node_01〜05） |
 | [`processing/`](processing/) | PC 側のサブシステム | 本体とは別言語で GUI・可視化を作る場合の置き場 |
 | [`hardware/`](hardware/) | 回路図・配線図・部品表 | ハードを使うときの資料一式の管理例 |
-| [`scores/`](scores/) | プロジェクト固有のデータ | 楽譜・マップ・シナリオ・設定ファイルなどの置き場 |
+| [`assets/`](assets/) | プロジェクト固有のデータ | マップ・シナリオ・設定ファイル・テストデータなどの置き場 |
 | [`tools/`](tools/) | 補助スクリプト | ベンチマーク・解析スクリプトの置き場 |
 | [`docs/`](docs/) | 設計ドキュメント・ADR | 設計判断を残すドキュメントの例 |
 | [`meetings/`](meetings/) | 議事録・WBS・ガント | 進捗管理ドキュメントのテンプレ |

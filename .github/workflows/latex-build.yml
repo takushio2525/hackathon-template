@@ -21,7 +21,6 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
-    container: ghcr.io/paperist/texlive-ja:debian
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -30,12 +29,13 @@ jobs:
           ref: ${{ github.head_ref || github.ref_name }}
           fetch-depth: 0
 
-      - name: Mark workspace as safe directory
-        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
       - name: Compile LaTeX
-        working-directory: report
-        run: latexmk main.tex
+        run: |
+          docker run --rm \
+            -v "${{ github.workspace }}/report:/workspace" \
+            -w /workspace \
+            ghcr.io/paperist/texlive-ja:debian \
+            latexmk main.tex
 
       - name: Upload PDF artifact (PR)
         if: github.event_name == 'pull_request'
