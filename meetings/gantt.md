@@ -8,7 +8,7 @@ GitHub の Markdown プレビューは Mermaid を自動レンダリングする
 
 ```mermaid
 gantt
-    title ハッカソン1 スケジュール（13週）
+    title プロジェクトスケジュール（13週）
     dateFormat  YYYY-MM-DD
     axisFormat  %m/%d
 
