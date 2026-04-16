@@ -12,9 +12,8 @@
 
 > **コード編集を始める前に、必ず `git pull` でリポジトリを最新化してください。**
 >
-> このリポジトリは `.tex` ファイルが更新されると GitHub Actions が PDF を
-> 自動でコミットする仕組みが入っています。**自分が push した直後でも**
-> リモートには自分が知らないコミットが増えていることがあります。
+> チームメンバーが push した変更を取り込まずに作業を始めると、
+> 後でコンフリクト（衝突）が大量発生して時間を浪費します。
 > 作業の最初に pull、これを徹底してください。
 >
 > 詳しい理由と具体的な手順は [CONTRIBUTING.md](CONTRIBUTING.md) を読んでください。
@@ -93,13 +92,15 @@ cd <新しいリポジトリ名>
 
 ### LaTeX 報告書
 
-`report/` 配下の `.tex` / `.bib` / `.sty` / `.cls` を**どのブランチでも**更新して
-push すると、GitHub Actions が自動でコンパイルし、`report/main.pdf` を**同じ
-ブランチへ自動コミット**する。手元で Docker を持っていなくても、**チームの誰か
-が push すれば最新の PDF がリポジトリ上で見られる**。
+報告書の PDF は**手元で Docker を使ってコンパイル**する運用。
 
-- 自動コミットの差分が流れてくるので、**作業前に必ず `git pull`**
-- PR では PDF は Artifact として Actions タブからダウンロードできる
+```bash
+cd report
+docker run --rm -v "$(pwd):/workspace" -w /workspace \
+  ghcr.io/paperist/texlive-ja:debian latexmk main.tex
+```
+
+VSCode の Dev Container（`.devcontainer/`）を使えば、コンテナ内で自動コンパイルもできる。
 
 ### PlatformIO（Arduino ビルド）
 
