@@ -50,3 +50,15 @@ docker run --rm -v "$(pwd):/workspace" -w /workspace \
 
 - 図は `fig/` ディレクトリに配置する（推奨形式: PDF / PNG）
 - LaTeX の基本記法は `99_appendix.tex`（付録）にチートシートとして載っている
+
+## 同梱スタイルファイルの出典・ライセンス
+
+| ファイル | 出典 | ライセンス | 備考 |
+|---|---|---|---|
+| `jex.cls` | `jclasses.dtx`（pLaTeX 標準クラス `jbook.cls`）の派生 | [LaTeX Project Public License (LPPL)](https://www.latex-project.org/lppl/) | 大学実験レポート用にカスタマイズされたもの。ファイル名は原典と異なる名前に変更済み（LPPL の改名要件を満たす） |
+| `jex.sty` | `pl209.dtx`（pLaTeX 2.09 互換スタイル `jbook.sty`）の派生 | LPPL | `jex.cls` を読み込むラッパー |
+| `plistings.sty` | `lltjp-listings.sty` ベースの改変物 | 原典に準ずる（LPPL） | `listings` パッケージで日本語の文字幅を補正するためのスタイル |
+
+> **注意**: これらのスタイルファイルは特定の大学の報告書フォーマットに合わせたものです。
+> 自分たちの所属機関のフォーマットに合わせて差し替えてください。
+

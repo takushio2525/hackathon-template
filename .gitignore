@@ -1,3 +1,6 @@
+# ===== AI ツール設定 =====
+.claude/
+
 # ===== PlatformIO =====
 .pio/
 .pioenvs/
