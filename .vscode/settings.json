@@ -34,7 +34,7 @@
         }
     ],
     "latex-workshop.latex.recipes": [
-        { "name": "latexmk (uplatex)", "tools": ["latexmk"] }
+        { "name": "latexmk (platex)", "tools": ["latexmk"] }
     ],
     "latex-workshop.latex.autoBuild.run": "onFileChange",
     "latex-workshop.view.pdf.viewer": "tab"

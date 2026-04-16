@@ -28,7 +28,7 @@
                 ],
                 "latex-workshop.latex.recipes": [
                     {
-                        "name": "latexmk (uplatex)",
+                        "name": "latexmk (platex)",
                         "tools": ["latexmk"]
                     }
                 ],
